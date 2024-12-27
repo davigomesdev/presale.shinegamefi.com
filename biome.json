@@ -1,0 +1,76 @@
+{
+	"$schema": "https://biomejs.dev/schemas/1.8.1/schema.json",
+	"organizeImports": {
+		"enabled": true
+	},	
+	"formatter": {
+		"enabled": true,
+		"formatWithErrors": false,
+		"ignore": [],
+		"attributePosition": "auto",
+		"indentStyle": "tab",
+		"indentWidth": 2,
+		"lineEnding": "lf",
+		"lineWidth": 100
+	},
+	"javascript": {
+		"formatter": {
+			"arrowParentheses":"always",
+			"bracketSameLine": false,
+			"bracketSpacing": true,
+			"jsxQuoteStyle": "single",
+			"quoteProperties": "asNeeded",
+			"quoteStyle": "single",
+			"semicolons": "always"
+		}
+	},
+	"json": {
+		"formatter": {
+			"trailingCommas": "none"
+		}
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true,
+			"nursery": {
+				"noConsole": "warn"
+			},
+			"suspicious": {
+				"noExplicitAny": "off",
+				"noFunctionAssign": "error",
+				"noImplicitAnyLet": "error",
+				"useAwait": "error",
+				"noGlobalIsNan": "off",
+				"noArrayIndexKey": "off"
+			},
+			"correctness": {
+				"noUnusedVariables": "warn",
+				"noConstructorReturn": "error",
+				"noUndeclaredVariables": "error",
+				"noUnreachable": "error",
+				"noEmptyCharacterClassInRegex": "off",
+				"useExhaustiveDependencies": "off"
+			},
+			"complexity": {
+				"noUselessLabel": "warn",
+				"useArrowFunction": "error",
+				"noEmptyTypeParameters": "error",
+				"noUselessTernary": "off",
+				"useOptionalChain": "off"
+			},
+			"a11y":{
+				"useKeyWithClickEvents": "off",
+				"useButtonType": "off"
+			},
+			"style":{
+				"useImportType": "off",
+				"useShorthandFunctionType": "error",
+				"useNodejsImportProtocol": "off",
+				"noNonNullAssertion": "off",
+				"noParameterAssign": "error",
+				"noUselessElse": "off"
+			}
+		}
+	}
+}
