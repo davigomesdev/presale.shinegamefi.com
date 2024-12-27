@@ -170,7 +170,7 @@ const Home = () => {
 			{isActiveModalError && (
 				<ModalError
 					title='Transaction error'
-					message='Check your balance and the minimum purchase is $2.'
+					message='Check your balance and the minimum purchase is $1.'
 					onClickClose={handleToggleIsActiveModalError}
 				/>
 			)}
