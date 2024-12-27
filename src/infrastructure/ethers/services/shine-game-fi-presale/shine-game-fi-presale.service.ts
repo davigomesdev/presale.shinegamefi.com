@@ -2,7 +2,7 @@
 import { getWalletProvider } from '../../ethers.service';
 
 // ethers imports
-import { BrowserProvider, Contract, formatEther, parseEther, parseUnits } from 'ethers';
+import { BrowserProvider, Contract, formatEther, formatUnits, parseEther, parseUnits } from 'ethers';
 import { TransactionResponse, JsonRpcSigner } from 'ethers/providers';
 
 // service imports
@@ -130,10 +130,12 @@ export const etherToUSDT = async (amount: string, address: string): Promise<numb
 	const signer: JsonRpcSigner = await ethersProvider.getSigner();
 
 	const contract: Contract = new Contract(address, ShineGameFiPresaleMetaData.abi, signer);
+	const usdtAddress: string = await contract.usdt();
 
 	const value: bigint = await contract.etherToUSDT(String(parseEther(amount)));
+	const decimal = await decimals(usdtAddress);
 
-	return Number(formatEther(value));
+	return Number(formatUnits(value, decimal));
 };
 
 export const buyTokensByEther = async (amount: string, address: string): Promise<void> => {
