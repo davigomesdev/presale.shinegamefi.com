@@ -102,7 +102,7 @@ const Home = () => {
 					</Style.Form>
 					<Style.Claims onSubmit={handleOnSubmitClaimFirstStage}>
 						<Style.Header>
-							<h1>TGE 50% in launch</h1>
+							<h1>TGE 50% pre-sale</h1>
 						</Style.Header>
 						{firstStagebalances > 0 ? (
 							<Style.Claim>
@@ -129,7 +129,7 @@ const Home = () => {
 					</Style.Claims>
 					<Style.Claims onSubmit={handleOnSubmitClaim}>
 						<Style.Header>
-							<h1>50% in March.</h1>
+							<h1>50% at launch</h1>
 						</Style.Header>
 						{claims.length > 0 ? (
 							claims.map((calim, index) => (

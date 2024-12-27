@@ -108,9 +108,12 @@ const useHome = () => {
 		const value: string = token.contract ? targetValue : String(nativeAmount);
 
 		const totalTokensPerUSDT: number = totalSumOfTokensPerUSDT(Number(value));
-
+		const format: string = !Number.isNaN(totalTokensPerUSDT)
+		? formatTruncateDecimal(totalTokensPerUSDT, 6).toString()
+			: '0';
+		
 		setFrom(sanitizedValue);
-		setTo(totalTokensPerUSDT.toString());
+		setTo(format)
 	};
 
 	const handleOnChangeSetFrom = (e: ChangeEvent<HTMLInputElement>): void => {
@@ -121,9 +124,12 @@ const useHome = () => {
 		const value: string = token.contract ? targetValue : String(nativeAmount);
 
 		const totalTokensPerUSDT: number = totalSumOfTokensPerUSDT(Number(value));
+		const format: string = !Number.isNaN(totalTokensPerUSDT)
+		? formatTruncateDecimal(totalTokensPerUSDT, 6).toString()
+		: '0';
 
-		setFrom(formatTruncateDecimal(Number(sanitizedValue), 6).toString());
-		setTo(formatTruncateDecimal(totalTokensPerUSDT, 6).toString());
+		setFrom(sanitizedValue);
+		setTo(format);
 	};
 
 	const handleOnChangeSetTo = (e: ChangeEvent<HTMLInputElement>): void => {
@@ -133,7 +139,7 @@ const useHome = () => {
 		const usdtAmount: number = totalSumOfUSDTsPerToken(Number(sanitizedValue));
 		const nativeAmount: number = usdtAmount / shineGameFiPresaleStore.etherPerUSDT;
 
-		setTo(formatTruncateDecimal(Number(sanitizedValue), 6).toString());
+		setTo(sanitizedValue);
 		setFrom(formatTruncateDecimal(token.contract ? usdtAmount : nativeAmount, 6).toString());
 	};
 
